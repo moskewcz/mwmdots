@@ -1,0 +1,4 @@
+# name: sptd (...; ...; ...) { ... }
+# key: sptd
+# --
+struct $1; typedef shared_ptr< $1 > p_$1; 

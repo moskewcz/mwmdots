@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: csvprint
+# key: csvprint
+# type: command
+# --
+(let ((yas-good-grace nil)
+      (vars-str (read-string "vars to print: ")))
+  (setq vars-list (split-string vars-str ))
+  (yas-expand-snippet
+   (concat "(*${1:out}) << strprintf( \""
+	   (mapconcat
+	    (lambda (vn)
+	      (format "%s," vn))
+	    vars-list	 "") 
+	   "\\n\");\n"
+	   "(*$1) << strprintf( \"" 
+	   (mapconcat
+	    (lambda (vn)
+	      (format "%%s," vn))
+	    vars-list	 "") 
+	   "\\n\""
+	   (mapconcat
+	    (lambda (vn)
+	      (format ", str(%s).c_str()" vn))
+	    vars-list	 "") 
+	   " );\n"
+	   )
+
+))
+			
+

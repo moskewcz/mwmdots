@@ -1,0 +1,142 @@
+(setq my-c-style
+      '(
+        (c-basic-offset . 2)
+        (c-comment-only-line-offset . 0)
+        (c-offsets-alist . (
+                            (arglist-close . c-lineup-arglist)
+                            (substatement-open . 0)
+                            (inline-open . 0)
+                            )
+                         )
+        )
+      )
+
+(setq desktop-path '("."))
+
+(defun count-words-region (beginning end) 
+  "Print number of words in the region."
+  (interactive "r")
+  (message "Counting words in region ... ") ;;; 1. Set up appropriate conditions.
+  (save-excursion
+    (let ((count 0))
+      (goto-char beginning) ;;; 2. Run the while loop.
+      (while (and (< (point) end)
+                  (re-search-forward "\\w+\\W*" end t))
+        (setq count (1+ count))) ;;; 3. Send a message to the user.
+      (cond ((zerop count)
+             (message
+              "The region does NOT have any words."))
+            ((= 1 count)
+             (message
+              "The region has 1 word."))
+            (t
+             (message
+              "The region has %d words." count))))))
+
+
+
+(add-hook 'c-mode-common-hook
+          (function (lambda ()
+                      (c-add-style "my-style" my-c-style t)
+                      )
+                    )
+          )
+
+
+(put 'eval-expression 'disabled nil)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ediff-diff-options "-w -i")
+ '(hscroll-step 1)
+ '(inhibit-startup-screen t)
+ '(initial-frame-alist (quote ((height . 62) (width . 121) (menu-bar-lines . 0) (tool-bar-lines . 0))))
+ '(menu-bar-mode 0)
+ '(pc-select-meta-moves-sexps t)
+ '(pc-select-selection-keys-only t)
+ '(pc-selection-mode t)
+ '(scroll-step 1))
+
+;(custom-set-faces
+;  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
+;  ;; Your init file should contain only one such instance.
+; '(default ((t (:stipple nil :background "DarkSlateGray" :foreground "Wheat" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 118 :width normal :family "adobe-courier")))))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "DarkSlateGray" :foreground "Wheat" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width semi-condensed :foundry "unknown" :family "Ubuntu Mono")))))
+
+
+(global-set-key [M-menu] 'compile)
+(global-set-key [f1] (lambda ()
+			(interactive)
+			(save-buffer)
+			(compile compile-command) ) )
+
+(global-set-key [f2] (lambda ()
+                         (interactive)
+                         (switch-to-buffer (other-buffer))))
+
+(global-set-key [f3] (lambda ()
+		       (interactive)
+		       (indent-region (mark) (point) nil)))
+
+
+(global-set-key [f4] 'tags-search)
+(global-set-key [C-f4] 'visit-tags-table)
+
+(global-set-key [f5] 'tags-query-replace)
+
+(global-set-key [f6] (lambda ()
+		       (interactive)
+		       (insert-file "/tmp/eib.txt") ))
+
+(global-set-key "\M-g" 'goto-line)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(global-font-lock-mode 1)
+
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files."
+  (interactive)
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (not (buffer-modified-p)))
+	(revert-buffer t t t) )))
+  (message "Refreshed open files.") )
+
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+
+(setq yas-snippet-dirs
+      '("~/snippets"            ;; personal snippets
+	"~/.emacs.d/plugins/yasnippet/snippets"    ;; the default collection
+	))
+
+(yas-global-mode 1)
+
+(desktop-save-mode 1)
+
+(setq desktop-globals-to-save
+      (append '((extended-command-history . 30)
+                (file-name-history        . 100)
+                (grep-history             . 30)
+                (compile-history          . 30)
+		compile-command
+                (minibuffer-history       . 50)
+                (query-replace-history    . 60)
+                (read-expression-history  . 60)
+                (regexp-history           . 60)
+                (regexp-search-ring       . 20)
+                (search-ring              . 20)
+                (shell-command-history    . 50)
+                tags-file-name tags-table-list
+                register-alist
+		desktop-missing-file-warning  )))

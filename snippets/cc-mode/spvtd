@@ -1,0 +1,6 @@
+# name: spvtd (...; ...; ...) { ... }
+# key: spvtd
+# --
+typedef vector< $1 > vect_$1; 
+typedef shared_ptr< $1 > p_$1; 
+typedef vector< p_$1 > vect_p_$1;

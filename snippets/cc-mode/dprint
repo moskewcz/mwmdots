@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: dprint
+# key: dprint
+# type: command
+# --
+(let ((yas-good-grace nil)
+      (vars-str (read-string "vars to print: ")))
+  (setq vars-list (split-string vars-str ))
+  (yas-expand-snippet
+   (concat "printf( \""
+	   (mapconcat
+	    (lambda (vn)
+	      (format "%s=%%s" vn))
+	    vars-list	 " ") 
+	   "\\n\"" 
+	   (mapconcat
+	    (lambda (vn)
+	      (format ", str(%s).c_str()" vn))
+	    vars-list	 "") 
+	   " );"
+	   )))
+			
+

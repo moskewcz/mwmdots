@@ -1,0 +1,4 @@
+# name: add_rlp
+# key: add_rlp
+# --
+void add_${1:}_${2:complex}( uint64_t const n ) { $1_$2 += n; }

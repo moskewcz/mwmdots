@@ -2,4 +2,4 @@
 	name = Matthew Moskewicz
 	email = moskewcz@alumni.princeton.edu
 [core]
-	editor = emacs
+	editor = nano

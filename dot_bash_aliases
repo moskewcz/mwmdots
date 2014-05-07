@@ -4,6 +4,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias ssh='ssh -X'
+alias apt-update='sudo apt-get update && sudo apt-get dist-upgrade -y'
 
 alias cc_etags="find . -iregex '.*\.\(h\|cpp\|cu\|cc\|hpp\|c\)$' | xargs etags"
 

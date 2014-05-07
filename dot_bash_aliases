@@ -15,3 +15,8 @@ if [ -f ~/bin/mwm-git-completion.bash ]; then
     . ~/bin/mwm-git-completion.bash
 fi
  
+# FIXME: not quite the right place for this?
+# set PATH so it includes user's private local bin if it exists
+if [ -d "$HOME/bin_local" ] ; then
+    PATH="$HOME/bin_local:$PATH"
+fi

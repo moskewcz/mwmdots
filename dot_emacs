@@ -16,7 +16,6 @@
         )
       )
 
-(setq desktop-path '("."))
 
 (defun count-words-region (beginning end) 
   "Print number of words in the region."
@@ -127,8 +126,12 @@
 
 (yas-global-mode 1)
 
-(desktop-save-mode 1)
+;; for reference: handling custom command line args to control .emacs exec:
+;; (setq cla-no-desktop (member "--no-desktop" command-line-args)) ;; okay, don't need this, --no-desktop is good
+;; (setq command-line-args (delete "--no-desktop" command-line-args)) ;; not a custom option, don't delete it
 
+(setq desktop-path '("."))    
+(desktop-save-mode 1)	
 (setq desktop-globals-to-save
       (append '((extended-command-history . 30)
                 (file-name-history        . 100)

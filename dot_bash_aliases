@@ -15,6 +15,11 @@ alias pwgen_with_opts='pwgen -cnysB'
 if [ -f ~/bin/mwm-git-completion.bash ]; then
     . ~/bin/mwm-git-completion.bash
 fi
+
+# add local aliases, if any
+if [ -f ~/bin_local/local_aliases ]; then
+    . ~/bin_local/local_aliases
+fi
  
 # FIXME: not quite the right place for this?
 # set PATH so it includes user's private local bin if it exists

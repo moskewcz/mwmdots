@@ -1,7 +1,9 @@
+
 (when (< emacs-major-version 24)
   (add-to-list 'load-path  "~/.emacs.d/plugins/cl-lib")
   (require 'cl-lib)
   )
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 
 (setq my-c-style
       '(
@@ -49,6 +51,10 @@
 
 (put 'eval-expression 'disabled nil)
 
+;; hacks for sometimes running with multiple monitors
+;; (setq local_left (if (eq (display-pixel-width) 2560) 1280 0)) 
+(setq local_height (if (eq (display-pixel-width) 2560) 59 62))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,7 +63,7 @@
  '(ediff-diff-options "-w -i")
  '(hscroll-step 1)
  '(inhibit-startup-screen t)
- '(initial-frame-alist (quote ((height . 62) (width . 121) (menu-bar-lines . 0) (tool-bar-lines . 0))))
+ '(initial-frame-alist `((height . ,local_height) (width . 123) (menu-bar-lines . 0) (tool-bar-lines . 0) ))
  '(menu-bar-mode 0)
  '(pc-select-meta-moves-sexps t)
  '(pc-select-selection-keys-only t)

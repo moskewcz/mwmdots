@@ -121,8 +121,11 @@
 	(revert-buffer t t t) )))
   (message "Refreshed open files.") )
 
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/elisp" )
+(require 'smart-dash)
+(add-hook 'c-mode-common-hook 'smart-dash-mode)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet" )
 (require 'yasnippet)
 
 (setq yas-snippet-dirs

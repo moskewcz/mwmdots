@@ -3,3 +3,5 @@
 	email = moskewcz@alumni.princeton.edu
 [core]
 	editor = emacs_nw
+[alias]
+	start = !git init && git commit --allow-empty -m \"empty initial commit\"

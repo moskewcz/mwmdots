@@ -4,6 +4,8 @@
   (require 'cl-lib)
   )
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
 
 (setq my-c-style
       '(

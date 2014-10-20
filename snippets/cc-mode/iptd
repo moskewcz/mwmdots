@@ -1,0 +1,4 @@
+# name: iptd (...; ...; ...) { ... }
+# key: iptd
+# --
+struct $1; typedef boost::intrusive_ptr< $1 > ip_$1; 

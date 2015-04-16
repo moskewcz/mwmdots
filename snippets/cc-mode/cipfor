@@ -1,0 +1,6 @@
+# name: cipfor (...; ...; ...) { ... }
+# key: cipfor
+# --
+for( ${1:vect}::${4:const_iterator} ${3:i} = $2->begin(); $3 != $2->end(); ++$3 ) {
+  $0
+}

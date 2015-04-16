@@ -1,0 +1,15 @@
+# name: isstr
+# key: isstr
+# type: command
+# --
+(let ((yas-good-grace nil)
+      (vars-str (read-string "vars to print: ")))
+  (setq vars-list (split-string vars-str ))
+  (yas-expand-snippet
+   (mapconcat
+   	    (lambda (vn)
+	    	      (format "std::string const %s_str = \"%s\";\n" vn vn))
+	    	      	      vars-list "")	 
+	   ))					 
+
+

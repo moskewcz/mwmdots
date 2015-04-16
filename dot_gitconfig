@@ -5,3 +5,5 @@
 	editor = emacs_nw
 [alias]
 	start = !git init && git commit --allow-empty -m \"empty initial commit\"
+[push]
+	default = simple

@@ -4,9 +4,9 @@ alias l='ls -CF'
 alias ssh='ssh -X'
 alias apt-update='sudo apt-get update && sudo apt-get dist-upgrade -y'
 
-alias find_cc="find . -iregex '.*\.\(h\|cpp\|cu\|cc\|hpp\|c\)$'"
-alias cc_etags="find . -iregex '.*\.\(h\|cpp\|cu\|cc\|hpp\|c\)$' | xargs etags"
-alias cc_emacs="find . -iregex '.*\.\(h\|cpp\|cu\|cc\|hpp\|c\)$' | xargs emacs"
+alias find_cc="find . -iregex  '.*\.\(h\|cpp\|cu\|cl\|cucl\|rs\|cc\|hpp\|c\)$'"
+alias cc_etags="find . -iregex '.*\.\(h\|cpp\|cu\|cl\|cucl\|rs\|cc\|hpp\|c\)$' | xargs etags"
+alias cc_emacs="find . -iregex '.*\.\(h\|cpp\|cu\|cl\|cucl\|rs\|cc\|hpp\|c\)$' | xargs emacs"
 
 alias fix_capslock_led='xmodmap -e "clear lock" -e "add lock = Caps_Lock"'
 alias pwgen_with_opts='pwgen -cnysB'
@@ -29,4 +29,9 @@ fi
 # set PATH so it includes user's private local bin if it exists
 if [ -d "$HOME/bin_local" ] ; then
     PATH="$HOME/bin_local:$PATH"
+fi
+
+# add cuda tools path if it exists in the usual place
+if [ -d "/usr/local/cuda/bin" ] ; then
+    PATH="/usr/local/cuda/bin:$PATH"
 fi

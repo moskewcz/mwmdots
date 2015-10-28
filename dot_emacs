@@ -4,6 +4,8 @@
   (require 'cl-lib)
   )
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cl\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cucl\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 

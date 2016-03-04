@@ -1,8 +1,16 @@
 # some lists of U14.04 packages for system bringup (WIP)
 
+# note: if you add the ppas first, you can do one update and one big install with all packages listed
+# note: probably best to do an update/upgrade before anything else; not sure how to combine upgrade with other steps.
+sudo apt-get update
+sudo apt-get upgrade
+
 # basic dev/utility
 sudo apt-get install libsparsehash-dev libpython-dev libboost-all-dev git emacs firefox gnome-disk-utility
 # x2go (must add ppa first)
+sudo add-apt-repository ppa:x2go/stable
+sudo apt-get update
 sudo apt-get install x2goserver x2goclient x2godesktopsharing x2golxdebindings lxde
 # caffe specific (including optional)
 apt-get install protobuf-compiler libprotobuf-dev liblmdb-dev libgflags-dev libgoogle-glog-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libatlas-base-dev
+

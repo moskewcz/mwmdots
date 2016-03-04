@@ -8,7 +8,7 @@
 (add-to-list 'auto-mode-alist '("\\.cucl\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
-
+;; (setq-default fill-column 120) ;; note: set below only for c-mode-common-hook
 (setq my-c-style
       '(
         (c-basic-offset . 2)
@@ -44,6 +44,10 @@
               "The region has %d words." count))))))
 
 
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (set-fill-column 120)))
 
 (add-hook 'c-mode-common-hook
           (function (lambda ()

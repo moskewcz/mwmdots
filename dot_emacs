@@ -144,6 +144,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/elisp" )
 (require 'smart-dash)
+(require 'auctex-config)
 (add-hook 'c-mode-common-hook 'smart-dash-mode)
 (add-hook 'python-mode-hook 'smart-dash-mode)
 

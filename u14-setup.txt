@@ -6,11 +6,19 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # basic dev/utility
-sudo apt-get install libsparsehash-dev libpython-dev libboost-all-dev git emacs firefox gnome-disk-utility python-numpy python-dev python-setuptools cython
+sudo apt-get install libsparsehash-dev libpython-dev libboost-all-dev git emacs firefox gnome-disk-utility python-numpy python-dev 
+
 # x2go (must add ppa first)
 sudo add-apt-repository ppa:x2go/stable
 sudo apt-get update
 sudo apt-get install x2goserver x2goclient x2godesktopsharing x2golxdebindings lxde
+
 # caffe specific (including optional)
 apt-get install protobuf-compiler libprotobuf-dev liblmdb-dev libgflags-dev libgoogle-glog-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libatlas-base-dev
 
+# rcnn specific
+sudo apt-get install python-setuptools python-pip cython python-skimage python-protobuf python-yaml python-opencv
+sudo pip install easydict
+
+# MPI related
+sudo apt-get install python-mpi4py

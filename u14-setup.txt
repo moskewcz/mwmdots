@@ -6,7 +6,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # basic dev/utility
-sudo apt-get install libsparsehash-dev libpython-dev libboost-all-dev git emacs firefox gnome-disk-utility
+sudo apt-get install libsparsehash-dev libpython-dev libboost-all-dev git emacs firefox gnome-disk-utility python-numpy python-dev python-setuptools cython
 # x2go (must add ppa first)
 sudo add-apt-repository ppa:x2go/stable
 sudo apt-get update

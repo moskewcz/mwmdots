@@ -1,3 +1,4 @@
+(setq-default indent-tabs-mode nil)
 
 (when (< emacs-major-version 24)
   (add-to-list 'load-path  "~/.emacs.d/plugins/cl-lib")

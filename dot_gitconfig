@@ -5,5 +5,6 @@
 	editor = emacs_nw
 [alias]
 	start = !git init && git commit --allow-empty -m \"empty initial commit\"
+	uberlog = log --graph --all --decorate
 [push]
 	default = current # note: remove or move to simple when we drop git 1.7.mumble support

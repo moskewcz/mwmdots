@@ -1,0 +1,19 @@
+#/bin/bash
+
+# adding admin users:
+
+NEWUSER=$1 
+KEYFILE=$2
+
+PW=`pwgen -cnysB1 8 1`
+# note adduser vs. useradd: adduser is the newer/debian/higher-level tool, so use that.
+sudo adduser --disabled-password --gecos "$NEWUSER" $NEWUSER
+echo "$NEWUSER:$PW" | sudo chpasswd
+echo "added $NEWUSER with password $PW"
+
+sudo -u $NEWUSER ssh -oStrictHostKeyChecking=no localhost echo "adding host keys"
+sudo -u $NEWUSER cp $KEYFILE /home/$NEWUSER/.ssh
+sudo -u $NEWUSER cp $KEYFILE /home/$NEWUSER/.ssh/authorized_keys
+
+
+sudo usermod -aG sudo $NEWUSER # optionaly allow sudo for user

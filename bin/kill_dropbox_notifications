@@ -1,0 +1,4 @@
+dbus-monitor "interface='org.freedesktop.Notifications'" |             \
+grep --line-buffered "Dropbox"                     |             \
+sed -u -e  's/.*/killall notify-osd/g'                   |             \
+bash

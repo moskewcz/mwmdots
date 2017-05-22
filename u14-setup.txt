@@ -22,3 +22,21 @@ sudo pip install easydict
 
 # MPI related
 sudo apt-get install python-mpi4py
+
+# NOTE: following are added during U16.04 setup, but are the same as they were in U14.04 (IIRC)
+
+# for lxde/lubuntu, add these to ~/.config/openbox/lxde-rc.xml (or lubuntu-rc.xml) for desktop switching with alt-numbers.
+# after, run: 'openbox --reconfigure' to update keybinds for running instance. 
+...
+ <!-- MWM: alt-number switch-to-desktop bindings -->
+<keybind key="A-1"><action name="Desktop"><desktop>1</desktop></action></keybind>
+<keybind key="A-2"><action name="Desktop"><desktop>2</desktop></action></keybind>
+<keybind key="A-3"><action name="Desktop"><desktop>3</desktop></action></keybind>
+<keybind key="A-4"><action name="Desktop"><desktop>4</desktop></action></keybind>
+<keybind key="A-5"><action name="Desktop"><desktop>5</desktop></action></keybind>
+<keybind key="A-6"><action name="Desktop"><desktop>6</desktop></action></keybind>
+<keybind key="A-7"><action name="Desktop"><desktop>7</desktop></action></keybind>
+<keybind key="A-8"><action name="Desktop"><desktop>8</desktop></action></keybind>
+<keybind key="A-9"><action name="Desktop"><desktop>9</desktop></action></keybind>
+<keybind key="A-0"><action name="Desktop"><desktop>10</desktop></action></keybind>
+...

@@ -40,3 +40,12 @@ sudo apt-get install python-mpi4py
 <keybind key="A-9"><action name="Desktop"><desktop>9</desktop></action></keybind>
 <keybind key="A-0"><action name="Desktop"><desktop>10</desktop></action></keybind>
 ...
+
+# also, add a edit keybind for print to run our screenshot script (FIXME: make these lxde setup changes a patch or something?)
+    <!-- Launch scrot when Print is pressed -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>screenshot.sh</command>
+      </action>
+    </keybind>
+

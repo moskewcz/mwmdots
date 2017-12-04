@@ -1,0 +1,2 @@
+#!/bin/sh
+ps -eaf | grep emacs | gawk '{print $2}' | xargs -I '{}' ls -l /proc/'{}'/cwd

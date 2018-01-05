@@ -1,2 +1,2 @@
 #!/bin/sh
-pgrep emacs | xargs -I '{}' ls -l /proc/'{}'/cwd
+pgrep -x emacs | xargs -I '{}' ls -l /proc/'{}'/cwd

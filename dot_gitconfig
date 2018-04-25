@@ -1,10 +1,12 @@
 [user]
-	name = Matthew Moskewicz
-	email = moskewcz@alumni.princeton.edu
+        name = Matthew Moskewicz
+        email = moskewcz@alumni.princeton.edu
 [core]
-	editor = emacs_nw
+        editor = emacs_nw
 [alias]
-	start = !git init && git commit --allow-empty -m \"empty initial commit\"
-	uberlog = log --graph --all --decorate
+        start = !git init && git commit --allow-empty -m \"empty initial commit\"
+        uberlog = log --graph --all --decorate
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [push]
-	default = current # note: remove or move to simple when we drop git 1.7.mumble support
+        default = current # note: remove or move to simple when we drop git 1.7.mumble support

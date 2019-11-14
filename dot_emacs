@@ -9,12 +9,13 @@
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cucl\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.dv\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 ;; (setq-default fill-column 120) ;; note: set below only for c-mode-common-hook
 (setq my-c-style
       '(
-        (c-basic-offset . 2)
+        (c-basic-offset . 4)
         (c-comment-only-line-offset . 0)
         (c-offsets-alist . (
                             (arglist-close . c-lineup-arglist)
@@ -71,6 +72,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(compilation-error-regexp-alist
+   (quote
+    (bash python-tracebacks-and-caml comma ftnchek java gcc-include gnu lcc makepp perl php gcov-file gcov-header gcov-nomark gcov-called-line gcov-never-called perl--Pod::Checker perl--Test perl--Test2 perl--Test::Harness weblint)))
  '(desktop-restore-in-current-display t)
  '(ediff-diff-options "-w -i")
  '(hscroll-step 1)
@@ -85,6 +89,7 @@
  '(pc-select-meta-moves-sexps t)
  '(pc-select-selection-keys-only t)
  '(pc-selection-mode t)
+ '(require-final-newline nil)
  '(scroll-step 1)
  '(show-trailing-whitespace t))
 
@@ -192,3 +197,4 @@
                 tags-file-name tags-table-list
                 register-alist
 		desktop-missing-file-warning  )))
+

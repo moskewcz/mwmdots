@@ -1,0 +1,5 @@
+#!/bin/sh
+FN=$(xsel)
+FN=$(python -c "a = '${FN}'; print(a.split(':')[0]);")
+#echo "FN: ${FN}"
+emacsclient -n -e "(find-file (concat (with-current-buffer \"*Messages*\" default-directory) \"/\" \"${FN}\" ) )"

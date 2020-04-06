@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: logprint
+# key: logprint
+# type: command
+# --
+(let ((yas-good-grace nil)
+      (vars-str (read-string "vars to print: ")))
+  (setq vars-list (split-string vars-str ))
+  (yas-expand-snippet
+   (concat "LOG(INFO) << \"MWM_INFO:\""
+	   (mapconcat
+	    (lambda (vn)
+	      (format "<< \" %s=\" << %s" vn vn))
+	    vars-list	 " ")
+	   ";"
+)))
+
+
